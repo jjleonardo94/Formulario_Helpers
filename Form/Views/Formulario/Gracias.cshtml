@@ -1,0 +1,84 @@
+﻿@model Form.Models.Empleado
+
+@{
+    ViewData["Title"] = "Gracias";
+}
+
+<html>
+
+<body>
+
+
+    <form>
+
+        <div>
+            <h3>Cedula: @Model.Cedula</h3>
+        </div>
+        <div>
+            <h3>Nombre: @Model.Nombre</h3>
+        </div>
+        <div>
+            <h3>Apellido: @Model.Apellido</h3>
+        </div>
+        <div>
+            <h3>Edad: @Model.Edad</h3>
+        </div>
+        <div>
+            <h3>Telefono: @Model.Telefono</h3>
+        </div>
+        <div>
+            <h3>Email: @Model.Email</h3>
+        </div>
+
+        <div>
+            @if (Model.Genero == true)
+            {
+
+                @: <h3>Genero: Masculino</h3>
+
+            }
+            else
+            {
+
+                @: <h3>Genero: Femenino</h3>
+
+            }
+        </div>
+        <div>
+            <h3>
+                Estado_Civil: @for (int a = 0; a < Model.Estado_Civil.Length; a++)
+                {
+                    if (Model.Estado_Civil[a] != "false")
+                    {
+                        @Model.Estado_Civil[a]
+                    }
+                }
+            </h3>
+
+        </div>
+        <div>
+            <h3>
+                Hobbys: @for (int i = 0; i < Model.Hobbys.Length; i++)
+                {
+
+                    if (Model.Hobbys[i] != "false")
+                    {
+
+                        @Model.Hobbys[i]
+
+                        <span>  </span>
+                    }
+
+                }
+            </h3>
+
+        </div>
+
+
+
+    </form>
+
+</body>
+
+
+</html>

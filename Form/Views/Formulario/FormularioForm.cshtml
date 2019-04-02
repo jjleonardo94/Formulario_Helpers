@@ -1,0 +1,93 @@
+﻿@model Form.Models.Empleado
+
+@{
+    ViewData["Title"] = "FormularioForm";
+}
+
+<h2>Formulario</h2>
+
+<h4>Empleado</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="FormularioForm" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Cedula" class="control-label"></label>
+                <input asp-for="Cedula" class="form-control" />
+                <span asp-validation-for="Cedula" class="text-danger"></span>
+                @Html.ValidationMessageFor(model => model.Cedula)
+            </div>
+            <div class="form-group">
+                <label asp-for="Nombre" class="control-label"></label>
+                <input asp-for="Nombre" class="form-control" />
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+                @Html.ValidationMessageFor(model => model.Nombre)
+            </div>
+            <div class="form-group">
+                <label asp-for="Apellido" class="control-label"></label>
+                <input asp-for="Apellido" class="form-control" />
+                <span asp-validation-for="Apellido" class="text-danger"></span>
+                @Html.ValidationMessageFor(model => model.Apellido)
+            </div>
+            <div class="form-group">
+                <label asp-for="Edad" class="control-label"></label>
+                <input asp-for="Edad" class="form-control" />
+                <span asp-validation-for="Edad" class="text-danger"></span>
+                @Html.ValidationMessageFor(model => model.Edad)
+            </div>
+            <div class="form-group">
+                <label asp-for="Telefono" class="control-label"></label>
+                <input asp-for="Telefono" class="form-control" />
+                <span asp-validation-for="Telefono" class="text-danger"></span>
+                @Html.ValidationMessageFor(model => model.Telefono)
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+                @Html.ValidationMessageFor(model => model.Email)
+            </div>
+            <div class="form-group">
+                <label asp-for="Genero" class="control-label"></label>
+                <select asp-for="Genero">
+                    <option value="">Seleccione una opcion</option>
+                    <option value="True">Masculino</option>
+                    <option value="False">Femenino</option>
+                </select>
+                <span asp-validation-for="Genero" class="text-danger"></span>
+                @Html.ValidationMessageFor(model => model.Genero)
+            </div>
+            <div class="form-group">
+                @Html.Label("Estado_Civil")
+                <br />
+                @Html.RadioButton("Estado_Civil", "Casado") Casado
+                <br />
+                @Html.RadioButton("Estado_Civil", "Soltero") Soltero
+                <br />
+                @Html.RadioButton("Estado_Civil", "Viudo") Viudo
+                <br />
+                @Html.RadioButton("Estado_Civil", "Union_Libre") Union_Libre
+            </div>
+            <div class="form-group">
+                @Html.Label("Hobbys")
+                <br />
+                @Html.CheckBox("Hobbys[]", false, new { @value = "Ciclismo" }) Ciclismo
+                <br />
+                @Html.CheckBox("Hobbys[]", false, new { @value = "Basketball" }) Basketball
+                <br />
+                @Html.CheckBox("Hobbys[]", false, new { @value = "Escuchar_Musica" }) Escuchar_Musica
+                <br />
+                @Html.CheckBox("Hobbys[]", false, new { @value = "Nadar" }) Nadar
+            </div>
+            <div class="form-group">
+                <input type="submit" value="submit" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
